@@ -89,9 +89,10 @@ class exports.Builder
             if typeof child is 'string' && @options.cdata && requiresCDATA child
               element = element.ele(key).raw(wrapCDATA child).up()
             else
-              if not child?
-                child = ''
-              element = element.ele(key, child.toString()).up()
+              if typeof child isnt 'undefined'
+                if not child?
+                  child = ''
+                element = element.ele(key, child.toString()).up()
 
       element
 
